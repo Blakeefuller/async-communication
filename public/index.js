@@ -19,15 +19,37 @@ function handleModalAcceptClick() {
 
   if (!photoURL || !caption) {
     alert("You must fill in all of the fields!");
-  } else {
+  } 
+  else {
+    var req = new XMLHttpRequest()
+    var url = '/people/' + getPersonIdFromURL() + '/addPhoto'
+    console.log("== url:", url)
+    req.open('POST', url)
 
-    var photoCardTemplate = Handlebars.templates.photoCard;
-    var newPhotoCardHTML = photoCardTemplate({
+    var photoObj = {
       url: photoURL,
       caption: caption
-    });
-    var photoCardContainer = document.querySelector('.photo-card-container');
-    photoCardContainer.insertAdjacentHTML('beforeend', newPhotoCardHTML);
+    }
+    var reqBody = JSON.stringify(photoObj)
+    console.log('== reqBody:', reqBody)
+
+    req.addEventListener('load', function (event) {
+      if (event.target.status === 200){
+        var photoCardTemplate = Handlebars.templates.photoCard;
+        var newPhotoCardHTML = photoCardTemplate({
+          url: photoURL,
+          caption: caption
+        });
+        var photoCardContainer = document.querySelector('.photo-card-container');
+        photoCardContainer.insertAdjacentHTML('beforeend', newPhotoCardHTML);
+      }
+      else {
+        alert('Error saving photo: ' + event.target.response)
+      }
+    })
+
+    req.setRequestHeader('Content-Type', 'application/json')
+    req.send(reqBody)
 
     hideModal();
 

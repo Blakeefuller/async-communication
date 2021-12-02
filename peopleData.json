@@ -14,7 +14,8 @@
         "caption": "Luke looking pensive.",
         "url": "http://esq.h-cdn.co/assets/15/43/980x490/landscape-1445356666-star-wars-luke-skywalker-tatooine.jpg"
       }
-    ]
+    ],
+    "_locals": {}
   },
   "leia": {
     "name": "Princess Leia",
@@ -30,6 +31,10 @@
       {
         "caption": "Classic Leia.",
         "url": "https://www.girlgeekupnorth.co.uk/wp-content/uploads/2016/12/Princess-Leia-1.jpg"
+      },
+      {
+        "url": "https://placekitten.com/480/480",
+        "caption": "Leia as a cat"
       },
       {
         "url": "https://placekitten.com/480/480",
@@ -60,7 +65,8 @@
         "caption": "Angry/surprised Rey.",
         "url": "https://www.nixon.com/on/demandware.static/-/Library-Sites-Nixon/default/dw95875405/category-landing/star-wars/rey/REY-CHARACTER-LANDING-5050-632x632.jpg"
       }
-    ]
+    ],
+    "_locals": {}
   },
   "finn": {
     "name": "Finn",
